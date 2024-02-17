@@ -163,7 +163,7 @@ class Command(object):
     def __repr__(self) -> str:
         return '{tag} {prefix}{name}{space}{args}'.format(
             tag=self.tag, prefix=self.prefix or '', name=self.name,
-            space=' ' if self.args else '', args=' '.join(self.args))
+            space=' ' if self.args else '', args=' '.join(str(arg) for arg in self.args if arg is not None))
 
     # for tests
     def __eq__(self, other):
